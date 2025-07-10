@@ -1,8 +1,29 @@
 let currentSortColumn = null;
 let currentSortDirection = 'asc';
+const todosPerPage = 10;
+let currentPage = 1;
 
 $(document).ready(function () {
   fetchTodos(() => {
+    renderTable();
+  });
+
+  $('#pagination').on('click', 'a.page-link', function (e) {
+    e.preventDefault();
+    const page = $(this).data('page');
+
+    if (page === 'first') {
+      currentPage = 1;
+    } else if (page === 'last') {
+      currentPage = Math.ceil(
+        filterTodos($('#searchBox').val() || '').length / todosPerPage
+      );
+    } else {
+      const selectedPage = parseInt(page);
+      if (selectedPage !== currentPage) {
+        currentPage = selectedPage;
+      }
+    }
     renderTable();
   });
 
