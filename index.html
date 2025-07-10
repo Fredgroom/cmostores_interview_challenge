@@ -27,14 +27,27 @@
           <table id="dataTable" class="table table-striped table-hover">
             <thead>
               <tr>
-                <th class="header">ID</th>
-                <th class="header">Title</th>
-                <th class="header">Completed</th>
+                <th class="header sortable text-center" data-sort="id">
+                  <div class="d-flex align-items-center">
+                    <span class="label">ID</span>
+                    <span class="arrow small text-secondary mt-1"></span>
+                  </div>
+                </th>
+                <th class="header sortable text-center" data-sort="title">
+                  <div class="d-flex align-items-center">
+                    <span class="label">Title</span>
+                    <span class="arrow small text-secondary mt-1"></span>
+                  </div>
+                </th>
+                <th class="header sortable text-center" data-sort="completed">
+                  <div class="d-flex align-items-center">
+                    <span class="label">Completed</span>
+                    <span class="arrow small text-secondary mt-1 w-2"></span>
+                  </div>
+                </th>
               </tr>
             </thead>
-            <tbody>
-              <!-- Table rows will be dynamically added here -->
-            </tbody>
+            <tbody></tbody>
           </table>
         </div>
       </div>

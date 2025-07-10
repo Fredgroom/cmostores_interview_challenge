@@ -1,3 +1,6 @@
+let currentSortColumn = null;
+let currentSortDirection = 'asc';
+
 $(document).ready(function () {
   fetchTodos(() => {
     renderTable();
@@ -5,6 +8,17 @@ $(document).ready(function () {
 
   $('#dataSearch').on('submit', function (e) {
     e.preventDefault();
+    renderTable();
+  });
+
+  $('#dataTable thead').on('click', 'th.sortable', function () {
+    const sortBy = $(this).data('sort');
+    if (currentSortColumn === sortBy) {
+      currentSortDirection = currentSortDirection === 'asc' ? 'desc' : 'asc';
+    } else {
+      currentSortColumn = sortBy;
+      currentSortDirection = 'asc';
+    }
     renderTable();
   });
 
